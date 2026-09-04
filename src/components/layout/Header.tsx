@@ -41,7 +41,7 @@ export function Header() {
           <div className="group relative">
             <Link
               href="/hizmetler"
-              className="flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-foreground"
+              className="flex items-center gap-1 rounded-full px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               Hizmetler
               <Icon name="ChevronDown" className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
@@ -67,7 +67,7 @@ export function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-4 py-2 text-sm font-medium text-muted transition-colors hover:text-foreground"
+              className="rounded-full px-3 py-2 text-sm font-medium text-muted transition-colors hover:text-foreground"
             >
               {link.label}
             </Link>

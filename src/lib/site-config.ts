@@ -14,8 +14,8 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { href: "/hizmetler", label: "Hizmetler" },
-  { href: "/sehirler", label: "Hizmet Bölgelerimiz" },
+  { href: "/sehirler", label: "Şehirler" },
   { href: "/hakkimizda", label: "Hakkımızda" },
-  { href: "/sss", label: "Sıkça Sorulan Sorular" },
+  { href: "/sss", label: "SSS" },
   { href: "/iletisim", label: "İletişim" },
 ] as const;

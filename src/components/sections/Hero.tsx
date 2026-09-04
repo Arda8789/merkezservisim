@@ -13,53 +13,23 @@ const TRUST_ITEMS: { icon: IconName; label: string }[] = [
   { icon: "BadgeCheck", label: "Şeffaf, Sürprizsiz Fiyat" },
 ];
 
-const ORBIT_BADGES: {
+interface OrbitBadge {
   key: string;
   label: string;
-  className: string;
+  pos: { left: string; top: string };
   animate: string;
   tint: string;
-  glow: string;
-  content: React.ReactNode;
-}[] = [
-  {
-    key: "klima",
-    label: "Klima",
-    className: "left-0 top-4 sm:top-6",
-    animate: "animate-float",
-    tint: "from-sky-400/25 to-accent/15",
-    glow: "shadow-sky-500/20",
-    content: (
-      <Image src="/images/klima-unit.png" alt="Klima" width={40} height={40} className="h-8 w-8 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)] sm:h-9 sm:w-9" />
-    ),
-  },
-  {
-    key: "kombi",
-    label: "Kombi",
-    className: "right-0 top-16 sm:top-20",
-    animate: "animate-float-slow",
-    tint: "from-primary/25 to-primary-dark/15",
-    glow: "shadow-primary/25",
-    content: <Icon name="Flame" className="h-5 w-5 text-primary-light" />,
-  },
-  {
-    key: "camasir",
-    label: "Çamaşır Makinesi",
-    className: "left-2 bottom-20 sm:bottom-24",
-    animate: "animate-float-slow",
-    tint: "from-blue-400/25 to-accent/15",
-    glow: "shadow-blue-500/20",
-    content: <Icon name="WashingMachine" className="h-5 w-5 text-accent-light" />,
-  },
-  {
-    key: "buzdolabi",
-    label: "Buzdolabı",
-    className: "right-6 bottom-2",
-    animate: "animate-float",
-    tint: "from-indigo-400/25 to-accent/15",
-    glow: "shadow-indigo-500/20",
-    content: <Icon name="Refrigerator" className="h-5 w-5 text-accent-light" />,
-  },
+  image?: string;
+  icon?: IconName;
+}
+
+const ORBIT_BADGES: OrbitBadge[] = [
+  { key: "klima", label: "Klima", pos: { left: "74%", top: "10%" }, animate: "animate-float", tint: "from-sky-400/25 to-accent/15", image: "/images/klima-unit.png" },
+  { key: "kombi", label: "Kombi", pos: { left: "96%", top: "50%" }, animate: "animate-float-slow", tint: "from-primary/25 to-primary-dark/15", image: "/images/kombi.png" },
+  { key: "camasir", label: "Çamaşır Makinesi", pos: { left: "74%", top: "90%" }, animate: "animate-float-slow", tint: "from-blue-400/25 to-accent/15", image: "/images/camasir-makinesi.png" },
+  { key: "buzdolabi", label: "Buzdolabı", pos: { left: "26%", top: "90%" }, animate: "animate-float", tint: "from-indigo-400/25 to-accent/15", image: "/images/buzdolabi.png" },
+  { key: "firin", label: "Fırın & Ocak", pos: { left: "4%", top: "50%" }, animate: "animate-float-slow", tint: "from-amber-400/25 to-primary/15", image: "/images/firin.png" },
+  { key: "bulasik", label: "Bulaşık Makinesi", pos: { left: "26%", top: "10%" }, animate: "animate-float", tint: "from-cyan-400/25 to-accent/15", icon: "Droplets" },
 ];
 
 export function Hero() {
@@ -110,14 +80,14 @@ export function Hero() {
           </div>
         </Reveal>
 
-        <Reveal delay={150} className="relative mx-auto hidden lg:block lg:h-[460px] lg:w-[460px]">
+        <Reveal delay={150} className="relative mx-auto hidden lg:block lg:h-[500px] lg:w-[500px]">
           <div className="bg-noise absolute inset-0 rounded-full opacity-[0.05] mix-blend-overlay" />
-          <div className="absolute inset-12 rounded-full bg-gradient-to-br from-accent/25 to-primary/25 blur-3xl" />
-          <div className="absolute inset-16 rounded-full border border-border-subtle bg-surface backdrop-blur-sm" />
-          <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-accent/25" />
-          <div className="absolute inset-8 animate-spin-slower rounded-full border border-dotted border-primary/20" />
+          <div className="absolute inset-16 rounded-full bg-gradient-to-br from-accent/25 to-primary/25 blur-3xl" />
+          <div className="absolute inset-20 rounded-full border border-border-subtle bg-surface backdrop-blur-sm" />
+          <div className="absolute inset-6 animate-spin-slow rounded-full border border-dashed border-accent/25" />
+          <div className="absolute inset-12 animate-spin-slower rounded-full border border-dotted border-primary/20" />
 
-          <div className="glass-card absolute left-1/2 top-2 flex -translate-x-1/2 items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold text-foreground shadow-lg shadow-black/30">
+          <div className="glass-card absolute left-1/2 top-[6%] z-10 flex -translate-x-1/2 items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold text-foreground shadow-lg shadow-black/30">
             <span className="h-1.5 w-1.5 animate-blink rounded-full bg-emerald-400" />
             Hat Şu An Aktif
           </div>
@@ -133,17 +103,17 @@ export function Hero() {
           {ORBIT_BADGES.map((badge) => (
             <div
               key={badge.key}
-              className={cn(
-                "glass-card absolute flex items-center gap-2 rounded-2xl py-2 pl-2 pr-3.5 shadow-xl",
-                badge.className,
-                badge.animate,
-                badge.glow
-              )}
+              style={{ left: badge.pos.left, top: badge.pos.top }}
+              className={cn("glass-card absolute z-10 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-2xl py-2 pl-2 pr-3.5 shadow-xl shadow-black/40", badge.animate)}
             >
-              <span className={cn("flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br", badge.tint)}>
-                {badge.content}
+              <span className={cn("flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br", badge.tint)}>
+                {badge.image ? (
+                  <Image src={badge.image} alt={badge.label} width={40} height={40} className="h-8 w-8 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]" />
+                ) : (
+                  <Icon name={badge.icon ?? "Wrench"} className="h-5 w-5 text-accent-light" />
+                )}
               </span>
-              <span className="text-xs font-semibold text-foreground">{badge.label}</span>
+              <span className="whitespace-nowrap text-xs font-semibold text-foreground">{badge.label}</span>
             </div>
           ))}
         </Reveal>
