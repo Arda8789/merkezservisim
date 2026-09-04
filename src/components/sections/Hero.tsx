@@ -81,27 +81,27 @@ export function Hero() {
             </Link>
           </div>
 
-          <div className="mt-3 grid grid-cols-2 gap-3.5 sm:grid-cols-3">
+          <div className="mt-3 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:gap-4">
             {CATEGORY_CARDS.map((card, index) => (
               <Reveal key={card.slug} delay={200 + index * 60}>
                 <Link
                   href={`/hizmetler/${card.slug}`}
                   className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-subtle bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-black/30"
                 >
-                  <div className={`relative flex h-24 items-center justify-center bg-gradient-to-br sm:h-28 ${card.tint}`}>
+                  <div className={`relative flex h-24 items-center justify-center bg-gradient-to-br sm:h-28 lg:h-36 ${card.tint}`}>
                     <Image
                       src={card.image}
                       alt={card.label}
-                      width={72}
-                      height={72}
-                      className="h-14 w-14 object-contain drop-shadow-[0_6px_10px_rgba(0,0,0,0.55)] transition-transform duration-300 group-hover:scale-110 sm:h-16 sm:w-16"
+                      width={112}
+                      height={112}
+                      className="h-20 w-20 object-contain drop-shadow-[0_6px_10px_rgba(0,0,0,0.55)] transition-transform duration-300 group-hover:scale-110 sm:h-24 sm:w-24 lg:h-28 lg:w-28"
                     />
                     <span className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-black/30 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
                       <Icon name="ArrowUpRight" className="h-3 w-3" />
                     </span>
                   </div>
-                  <div className="flex flex-1 items-center justify-center px-2 py-2.5">
-                    <span className="text-center text-xs font-semibold leading-tight text-foreground">{card.label}</span>
+                  <div className="flex flex-1 items-center justify-center px-2 py-2.5 lg:py-3.5">
+                    <span className="text-center text-xs font-semibold leading-tight text-foreground lg:text-sm">{card.label}</span>
                   </div>
                 </Link>
               </Reveal>

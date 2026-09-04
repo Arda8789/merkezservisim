@@ -20,6 +20,7 @@ export interface Hizmet {
   ad: string;
   kisaAd: string;
   icon: IconName;
+  gorseller: string[];
   kisaAciklama: string;
   girisParagraflari: string[];
   bakimBasligi: string;
@@ -33,6 +34,7 @@ export interface Hizmet {
 export const hizmetler: Hizmet[] = [
   {
     slug: "klima-servisi",
+    gorseller: ["/images/klima-teknisyen-1.jpg", "/images/klima-teknisyen-2.jpg", "/images/klima-teknisyen-3.jpg"],
     ad: "Klima Servisi",
     kisaAd: "Klima",
     icon: "Fan",
@@ -71,6 +73,7 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "kombi-servisi",
+    gorseller: ["/images/kombi-teknisyen-1.jpg", "/images/kombi-teknisyen-2.jpg", "/images/kombi-teknisyen-3.jpg"],
     ad: "Kombi Servisi",
     kisaAd: "Kombi",
     icon: "Flame",
@@ -109,6 +112,7 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "camasir-makinesi-tamiri",
+    gorseller: ["/images/camasir-teknisyen-1.jpg", "/images/camasir-teknisyen-2.jpg", "/images/camasir-teknisyen-3.jpg"],
     ad: "Çamaşır Makinesi Tamiri",
     kisaAd: "Çamaşır Makinesi",
     icon: "WashingMachine",
@@ -144,6 +148,7 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "bulasik-makinesi-tamiri",
+    gorseller: ["/images/bulasik-teknisyen-1.jpg", "/images/bulasik-teknisyen-2.jpg"],
     ad: "Bulaşık Makinesi Tamiri",
     kisaAd: "Bulaşık Makinesi",
     icon: "Droplets",
@@ -179,6 +184,7 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "buzdolabi-tamiri",
+    gorseller: ["/images/buzdolabi-teknisyen-1.jpg", "/images/buzdolabi-teknisyen-2.jpg", "/images/buzdolabi-teknisyen-3.jpg"],
     ad: "Buzdolabı Tamiri",
     kisaAd: "Buzdolabı",
     icon: "Refrigerator",
@@ -214,6 +220,7 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "derin-dondurucu-tamiri",
+    gorseller: ["/images/dondurucu-teknisyen-1.jpg", "/images/dondurucu-teknisyen-2.jpg", "/images/dondurucu-teknisyen-3.jpg"],
     ad: "Derin Dondurucu Tamiri",
     kisaAd: "Derin Dondurucu",
     icon: "Snowflake",
@@ -249,6 +256,7 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "firin-ocak-tamiri",
+    gorseller: ["/images/firin-teknisyen-1.jpg", "/images/firin-teknisyen-2.jpg", "/images/firin-teknisyen-3.jpg"],
     ad: "Fırın ve Ocak Tamiri",
     kisaAd: "Fırın & Ocak",
     icon: "CookingPot",
@@ -284,6 +292,7 @@ export const hizmetler: Hizmet[] = [
   },
   {
     slug: "kurutma-makinesi-tamiri",
+    gorseller: [],
     ad: "Kurutma Makinesi Tamiri",
     kisaAd: "Kurutma Makinesi",
     icon: "RotateCw",

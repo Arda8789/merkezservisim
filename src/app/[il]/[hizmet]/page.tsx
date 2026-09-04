@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { iller, getIlBySlug } from "@/lib/data/iller";
@@ -55,6 +56,7 @@ export default async function IlHizmetPage({ params }: Props) {
     { name: hizmet.ad, path: `/${il.slug}/${hizmet.slug}` },
   ];
   const comboSss = getComboSss(il, hizmet);
+  const heroGorsel = hizmet.gorseller.length > 0 ? hizmet.gorseller[il.plaka % hizmet.gorseller.length] : null;
 
   return (
     <>
@@ -67,23 +69,48 @@ export default async function IlHizmetPage({ params }: Props) {
         <Container className="relative">
           <Breadcrumbs items={breadcrumbItems} />
 
-          <Reveal className="mt-6 max-w-3xl">
-            <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 text-primary-light">
-              <Icon name={hizmet.icon} className="h-7 w-7" />
-            </span>
-            <h1 className="mt-5 text-3xl font-bold leading-tight text-foreground sm:text-4xl">
-              {il.ad} {hizmet.ad}
-            </h1>
-            <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">{getComboAcilisParagrafi(il, hizmet)}</p>
-            <div className="mt-7">
-              <CallButton size="lg" />
-            </div>
-          </Reveal>
+          <div className={`mt-6 grid gap-10 ${heroGorsel ? "lg:grid-cols-2 lg:items-center" : ""}`}>
+            <div className="max-w-3xl">
+              <Reveal>
+                <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 text-primary-light">
+                  <Icon name={hizmet.icon} className="h-7 w-7" />
+                </span>
+                <h1 className="mt-5 text-3xl font-bold leading-tight text-foreground sm:text-4xl">
+                  {il.ad} {hizmet.ad}
+                </h1>
+                <p className="mt-5 text-base leading-relaxed text-muted sm:text-lg">{getComboAcilisParagrafi(il, hizmet)}</p>
+                <div className="mt-7">
+                  <CallButton size="lg" />
+                </div>
+              </Reveal>
 
-          <Reveal delay={100} className="mt-8 flex flex-wrap items-center gap-2 text-xs text-muted-2">
-            <Icon name="MapPin" className="h-3.5 w-3.5 text-accent-light" />
-            Örnek hizmet noktalarımız: {getIlceOrnekleri(il, 6).join(", ")} ve {il.ad} geneli
-          </Reveal>
+              <Reveal delay={100} className="mt-8 flex flex-wrap items-center gap-2 text-xs text-muted-2">
+                <Icon name="MapPin" className="h-3.5 w-3.5 text-accent-light" />
+                Örnek hizmet noktalarımız: {getIlceOrnekleri(il, 6).join(", ")} ve {il.ad} geneli
+              </Reveal>
+            </div>
+
+            {heroGorsel ? (
+              <Reveal delay={150} className="relative">
+                <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-accent/15 to-primary/15 blur-2xl" />
+                <div className="relative aspect-[5/4] overflow-hidden rounded-3xl border border-border-subtle shadow-2xl shadow-black/40">
+                  <Image
+                    src={heroGorsel}
+                    alt={`${il.ad} ${hizmet.ad} - Merkez Servisim teknisyeni yerinde müdahale ediyor`}
+                    fill
+                    sizes="(min-width: 1024px) 44vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-5">
+                    <p className="flex items-center gap-1.5 text-xs font-semibold text-white">
+                      <Icon name="ShieldCheck" className="h-3.5 w-3.5 text-primary-light" />
+                      Merkez Servisim Güvencesiyle
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ) : null}
+          </div>
         </Container>
       </section>
 

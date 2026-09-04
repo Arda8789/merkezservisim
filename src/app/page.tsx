@@ -8,6 +8,7 @@ import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { ProcessSteps } from "@/components/sections/ProcessSteps";
 import { StatsCoverage } from "@/components/sections/StatsCoverage";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { TeamShowcase } from "@/components/sections/TeamShowcase";
 import { CoverageSection } from "@/components/sections/CoverageSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { CtaBanner } from "@/components/sections/CtaBanner";
@@ -34,6 +35,7 @@ export default function HomePage() {
       <Hero />
       <IlMarquee />
       <ServicesGrid />
+      <TeamShowcase />
       <ProcessSteps />
       <StatsCoverage />
       <WhyUs />

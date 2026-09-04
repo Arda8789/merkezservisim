@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { Container } from "@/components/ui/Container";
@@ -73,6 +74,46 @@ export default function HakkimizdaPage() {
               <CallButton size="lg" />
             </div>
           </Reveal>
+        </Container>
+      </section>
+
+      <section className="relative py-16 sm:py-20">
+        <Container>
+          <SectionHeading
+            align="left"
+            eyebrow="Sahadaki Ekibimiz"
+            title="Gerçek Teknisyenler, Gerçek Çözümler"
+            subtitle="Türkiye genelindeki teknik servis ağımızdaki ekiplerimiz, her çağrıda aynı özenle ve Merkez Servisim güvencesiyle sahada."
+          />
+          <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <Reveal className="relative col-span-2 h-64 overflow-hidden rounded-3xl border border-border-subtle sm:h-80">
+              <Image
+                src="/images/kombi-teknisyen-2.jpg"
+                alt="Merkez Servisim teknisyeni kombi bakımı yapıyor"
+                fill
+                sizes="(min-width: 640px) 50vw, 100vw"
+                className="object-cover"
+              />
+            </Reveal>
+            <Reveal delay={80} className="relative h-64 overflow-hidden rounded-3xl border border-border-subtle sm:h-80">
+              <Image
+                src="/images/dondurucu-teknisyen-1.jpg"
+                alt="Merkez Servisim teknisyeni derin dondurucu tamiri yapıyor"
+                fill
+                sizes="(min-width: 640px) 25vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+            <Reveal delay={140} className="relative h-64 overflow-hidden rounded-3xl border border-border-subtle sm:h-80">
+              <Image
+                src="/images/firin-teknisyen-2.jpg"
+                alt="Merkez Servisim teknisyeni fırın tamiri yapıyor"
+                fill
+                sizes="(min-width: 640px) 25vw, 50vw"
+                className="object-cover"
+              />
+            </Reveal>
+          </div>
         </Container>
       </section>
 

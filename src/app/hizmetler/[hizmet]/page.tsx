@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { hizmetler, getHizmetBySlug } from "@/lib/data/hizmetler";
@@ -58,7 +59,7 @@ export default async function HizmetDetayPage({ params }: Props) {
         <div className="pointer-events-none absolute -top-32 left-1/2 h-[30rem] w-[30rem] -translate-x-1/2 rounded-full bg-accent/15 blur-[120px]" />
         <Container className="relative">
           <Breadcrumbs items={breadcrumbItems} />
-          <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+          <div className={`mt-6 grid gap-10 ${hizmet.gorseller[0] ? "lg:grid-cols-2 lg:items-center" : ""}`}>
             <Reveal className="max-w-2xl">
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 text-primary-light">
                 <Icon name={hizmet.icon} className="h-7 w-7" />
@@ -69,6 +70,27 @@ export default async function HizmetDetayPage({ params }: Props) {
                 <CallButton size="lg" />
               </div>
             </Reveal>
+
+            {hizmet.gorseller[0] ? (
+              <Reveal delay={150} className="relative">
+                <div className="pointer-events-none absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-accent/15 to-primary/15 blur-2xl" />
+                <div className="relative aspect-[5/4] overflow-hidden rounded-3xl border border-border-subtle shadow-2xl shadow-black/40">
+                  <Image
+                    src={hizmet.gorseller[0]}
+                    alt={`${hizmet.ad} - Merkez Servisim teknisyeni yerinde müdahale ediyor`}
+                    fill
+                    sizes="(min-width: 1024px) 44vw, 100vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent p-5">
+                    <p className="flex items-center gap-1.5 text-xs font-semibold text-white">
+                      <Icon name="ShieldCheck" className="h-3.5 w-3.5 text-primary-light" />
+                      Merkez Servisim Güvencesiyle
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ) : null}
           </div>
 
           <div className="mt-10 space-y-4 text-sm leading-relaxed text-muted sm:text-base">
