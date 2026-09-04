@@ -1,13 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#141417" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
   <defs>
+    <linearGradient id="favbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#122E5C" />
+      <stop offset="1" stop-color="#08172F" />
+    </linearGradient>
     <clipPath id="fav-m-left">
-      <rect x="0" y="0" width="32" height="64" />
+      <rect x="-20" y="-20" width="70" height="140" />
     </clipPath>
     <clipPath id="fav-m-right">
-      <rect x="32" y="0" width="32" height="64" />
+      <rect x="50" y="-20" width="70" height="140" />
     </clipPath>
   </defs>
-  <text x="32" y="47" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="46" clip-path="url(#fav-m-left)" fill="#fb923c">M</text>
-  <text x="32" y="47" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-weight="900" font-size="46" clip-path="url(#fav-m-right)" fill="#9a3412">M</text>
+  <rect width="120" height="120" rx="28" fill="url(#favbg)" />
+  <g transform="translate(-11.94,-9.28) scale(1.4388)">
+    <g fill="none" stroke-width="13.2" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="1.75">
+      <path d="M25 68 V33 L50 58 L75 33 V68" stroke="#FFFFFF" clip-path="url(#fav-m-left)" />
+      <path d="M25 68 V33 L50 58 L75 33 V68" stroke="#F97316" clip-path="url(#fav-m-right)" />
+    </g>
+  </g>
 </svg>
