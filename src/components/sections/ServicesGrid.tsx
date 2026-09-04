@@ -23,7 +23,7 @@ export function ServicesGrid() {
                 className="group relative flex h-full flex-col rounded-3xl border border-border-subtle bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent/40 hover:bg-white/[0.06]"
               >
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 text-accent-light transition-colors group-hover:text-primary-light">
-                  <Icon name={hizmet.icon as never} className="h-6 w-6" />
+                  <Icon name={hizmet.icon} className="h-6 w-6" />
                 </span>
                 <h3 className="mt-5 text-lg font-semibold text-foreground">{hizmet.ad}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{hizmet.kisaAciklama}</p>

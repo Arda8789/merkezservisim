@@ -61,7 +61,7 @@ export default async function HizmetDetayPage({ params }: Props) {
           <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
             <Reveal className="max-w-2xl">
               <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 text-primary-light">
-                <Icon name={hizmet.icon as never} className="h-7 w-7" />
+                <Icon name={hizmet.icon} className="h-7 w-7" />
               </span>
               <h1 className="mt-5 text-3xl font-bold leading-tight text-foreground sm:text-4xl">{hizmet.ad}</h1>
               <p className="mt-4 text-base leading-relaxed text-muted sm:text-lg">{hizmet.kisaAciklama}</p>

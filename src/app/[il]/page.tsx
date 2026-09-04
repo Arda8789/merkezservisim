@@ -106,7 +106,7 @@ export default async function IlPage({ params }: Props) {
                   className="group flex h-full items-center gap-4 rounded-2xl border border-border-subtle bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:bg-white/[0.06]"
                 >
                   <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15 text-primary-light">
-                    <Icon name={hizmet.icon as never} className="h-5 w-5" />
+                    <Icon name={hizmet.icon} className="h-5 w-5" />
                   </span>
                   <div className="min-w-0">
                     <h3 className="text-sm font-semibold text-foreground">

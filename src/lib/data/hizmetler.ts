@@ -1,3 +1,5 @@
+import type { IconName } from "@/components/ui/Icon";
+
 export interface ArizaBelirtisi {
   baslik: string;
   aciklama: string;
@@ -17,7 +19,7 @@ export interface Hizmet {
   slug: string;
   ad: string;
   kisaAd: string;
-  icon: string;
+  icon: IconName;
   kisaAciklama: string;
   girisParagraflari: string[];
   bakimBasligi: string;

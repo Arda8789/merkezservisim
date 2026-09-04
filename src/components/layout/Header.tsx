@@ -61,7 +61,7 @@ export function Header() {
                     className="flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-muted transition-colors hover:bg-white/5 hover:text-foreground"
                   >
                     <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-accent/15 text-accent-light">
-                      <Icon name={h.icon as never} className="h-4 w-4" />
+                      <Icon name={h.icon} className="h-4 w-4" />
                     </span>
                     {h.ad}
                   </Link>

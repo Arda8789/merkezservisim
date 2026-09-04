@@ -69,7 +69,7 @@ export default async function IlHizmetPage({ params }: Props) {
 
           <Reveal className="mt-6 max-w-3xl">
             <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 text-primary-light">
-              <Icon name={hizmet.icon as never} className="h-7 w-7" />
+              <Icon name={hizmet.icon} className="h-7 w-7" />
             </span>
             <h1 className="mt-5 text-3xl font-bold leading-tight text-foreground sm:text-4xl">
               {il.ad} {hizmet.ad}
