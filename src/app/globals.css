@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: #08080a;
+  --color-background-alt: #0d0e13;
+  --color-surface: rgba(255, 255, 255, 0.045);
+  --color-surface-strong: rgba(255, 255, 255, 0.08);
+  --color-border-subtle: rgba(255, 255, 255, 0.09);
+  --color-foreground: #f5f6f8;
+  --color-muted: rgba(245, 246, 248, 0.68);
+  --color-muted-2: rgba(245, 246, 248, 0.46);
+
+  --color-primary: #f97316;
+  --color-primary-light: #fb923c;
+  --color-primary-dark: #ea580c;
+
+  --color-accent: #3b82f6;
+  --color-accent-light: #22d3ee;
+  --color-accent-dark: #1d4ed8;
+
+  --font-sans: var(--font-poppins), system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --animate-marquee: marquee 42s linear infinite;
+  --animate-marquee-fast: marquee 22s linear infinite;
+  --animate-float: float 7s ease-in-out infinite;
+  --animate-float-slow: float 11s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-spin-slow: spin 14s linear infinite;
+  --animate-pulse-ring: pulse-ring 2.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-14px) rotate(3deg); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.45); }
+  70% { box-shadow: 0 0 0 14px rgba(249, 115, 22, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+}
+
+html {
+  color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--color-accent-light), var(--color-accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.glass-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  backdrop-filter: blur(14px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
