@@ -1,10 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { CallButton } from "@/components/PhoneCTA";
 import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
-import { cn } from "@/lib/utils";
 
 const TRUST_ITEMS: { icon: IconName; label: string }[] = [
   { icon: "ShieldCheck", label: "1 Yıl İşçilik ve Parça Garantisi" },
@@ -13,23 +13,13 @@ const TRUST_ITEMS: { icon: IconName; label: string }[] = [
   { icon: "BadgeCheck", label: "Şeffaf, Sürprizsiz Fiyat" },
 ];
 
-interface OrbitBadge {
-  key: string;
-  label: string;
-  pos: { left: string; top: string };
-  animate: string;
-  tint: string;
-  image?: string;
-  icon?: IconName;
-}
-
-const ORBIT_BADGES: OrbitBadge[] = [
-  { key: "klima", label: "Klima", pos: { left: "74%", top: "10%" }, animate: "animate-float", tint: "from-sky-400/25 to-accent/15", image: "/images/klima-unit.png" },
-  { key: "kombi", label: "Kombi", pos: { left: "96%", top: "50%" }, animate: "animate-float-slow", tint: "from-primary/25 to-primary-dark/15", image: "/images/kombi.png" },
-  { key: "camasir", label: "Çamaşır Makinesi", pos: { left: "74%", top: "90%" }, animate: "animate-float-slow", tint: "from-blue-400/25 to-accent/15", image: "/images/camasir-makinesi.png" },
-  { key: "buzdolabi", label: "Buzdolabı", pos: { left: "26%", top: "90%" }, animate: "animate-float", tint: "from-indigo-400/25 to-accent/15", image: "/images/buzdolabi.png" },
-  { key: "firin", label: "Fırın & Ocak", pos: { left: "4%", top: "50%" }, animate: "animate-float-slow", tint: "from-amber-400/25 to-primary/15", image: "/images/firin.png" },
-  { key: "bulasik", label: "Bulaşık Makinesi", pos: { left: "26%", top: "10%" }, animate: "animate-float", tint: "from-cyan-400/25 to-accent/15", icon: "Droplets" },
+const CATEGORY_CARDS: { slug: string; label: string; image: string; tint: string }[] = [
+  { slug: "klima-servisi", label: "Klima", image: "/images/klima-unit.png", tint: "from-sky-500/15 via-sky-400/5 to-transparent" },
+  { slug: "kombi-servisi", label: "Kombi", image: "/images/kombi.png", tint: "from-primary/15 via-primary/5 to-transparent" },
+  { slug: "camasir-makinesi-tamiri", label: "Çamaşır Makinesi", image: "/images/camasir-makinesi.png", tint: "from-blue-500/15 via-blue-400/5 to-transparent" },
+  { slug: "bulasik-makinesi-tamiri", label: "Bulaşık Makinesi", image: "/images/bulasik-makinesi.png", tint: "from-cyan-500/15 via-cyan-400/5 to-transparent" },
+  { slug: "buzdolabi-tamiri", label: "Buzdolabı", image: "/images/buzdolabi.png", tint: "from-indigo-500/15 via-indigo-400/5 to-transparent" },
+  { slug: "firin-ocak-tamiri", label: "Fırın & Ocak", image: "/images/firin.png", tint: "from-amber-500/15 via-amber-400/5 to-transparent" },
 ];
 
 export function Hero() {
@@ -39,7 +29,7 @@ export function Hero() {
       <div className="pointer-events-none absolute -top-32 left-1/2 h-[34rem] w-[34rem] -translate-x-1/2 rounded-full bg-accent/20 blur-[120px]" />
       <div className="pointer-events-none absolute bottom-0 right-0 h-96 w-96 rounded-full bg-primary/20 blur-[110px]" />
 
-      <Container className="relative grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-10">
+      <Container className="relative grid gap-16 lg:grid-cols-2 lg:items-center lg:gap-12">
         <Reveal>
           <div className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-surface px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-accent-light">
             <span className="h-1.5 w-1.5 rounded-full bg-primary" />
@@ -80,42 +70,50 @@ export function Hero() {
           </div>
         </Reveal>
 
-        <Reveal delay={150} className="relative mx-auto hidden lg:block lg:h-[500px] lg:w-[500px]">
-          <div className="bg-noise absolute inset-0 rounded-full opacity-[0.05] mix-blend-overlay" />
-          <div className="absolute inset-16 rounded-full bg-gradient-to-br from-accent/25 to-primary/25 blur-3xl" />
-          <div className="absolute inset-20 rounded-full border border-border-subtle bg-surface backdrop-blur-sm" />
-          <div className="absolute inset-6 animate-spin-slow rounded-full border border-dashed border-accent/25" />
-          <div className="absolute inset-12 animate-spin-slower rounded-full border border-dotted border-primary/20" />
+        <Reveal delay={150} className="relative">
+          <div className="pointer-events-none absolute -inset-8 -z-10 rounded-[2.5rem] bg-gradient-to-br from-accent/10 via-transparent to-primary/10 blur-2xl" />
 
-          <div className="glass-card absolute left-1/2 top-[6%] z-10 flex -translate-x-1/2 items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold text-foreground shadow-lg shadow-black/30">
-            <span className="h-1.5 w-1.5 animate-blink rounded-full bg-emerald-400" />
-            Hat Şu An Aktif
+          <div className="flex items-center justify-between px-1">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-2">Popüler Hizmetler</p>
+            <Link href="/hizmetler" className="flex items-center gap-1 text-xs font-semibold text-accent-light transition-colors hover:text-accent">
+              Tümü
+              <Icon name="ArrowRight" className="h-3 w-3" />
+            </Link>
           </div>
 
-          <div className="absolute inset-0 flex items-center justify-center">
-            <span className="absolute h-24 w-24 animate-radar rounded-full bg-primary/40 sm:h-28 sm:w-28" />
-            <span className="absolute h-24 w-24 animate-radar rounded-full bg-primary/40 [animation-delay:1.4s] sm:h-28 sm:w-28" />
-            <div className="relative flex h-20 w-20 items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-primary to-primary-dark shadow-2xl shadow-primary/40 sm:h-24 sm:w-24">
-              <Icon name="PhoneCall" className="h-9 w-9 text-white sm:h-10 sm:w-10" />
-            </div>
+          <div className="mt-3 grid grid-cols-2 gap-3.5 sm:grid-cols-3">
+            {CATEGORY_CARDS.map((card, index) => (
+              <Reveal key={card.slug} delay={200 + index * 60}>
+                <Link
+                  href={`/hizmetler/${card.slug}`}
+                  className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border-subtle bg-surface transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-black/30"
+                >
+                  <div className={`relative flex h-24 items-center justify-center bg-gradient-to-br sm:h-28 ${card.tint}`}>
+                    <Image
+                      src={card.image}
+                      alt={card.label}
+                      width={72}
+                      height={72}
+                      className="h-14 w-14 object-contain drop-shadow-[0_6px_10px_rgba(0,0,0,0.55)] transition-transform duration-300 group-hover:scale-110 sm:h-16 sm:w-16"
+                    />
+                    <span className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-black/30 text-white opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
+                      <Icon name="ArrowUpRight" className="h-3 w-3" />
+                    </span>
+                  </div>
+                  <div className="flex flex-1 items-center justify-center px-2 py-2.5">
+                    <span className="text-center text-xs font-semibold leading-tight text-foreground">{card.label}</span>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
           </div>
 
-          {ORBIT_BADGES.map((badge) => (
-            <div
-              key={badge.key}
-              style={{ left: badge.pos.left, top: badge.pos.top }}
-              className={cn("glass-card absolute z-10 flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-2xl py-2 pl-2 pr-3.5 shadow-xl shadow-black/40", badge.animate)}
-            >
-              <span className={cn("flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br", badge.tint)}>
-                {badge.image ? (
-                  <Image src={badge.image} alt={badge.label} width={40} height={40} className="h-8 w-8 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.5)]" />
-                ) : (
-                  <Icon name={badge.icon ?? "Wrench"} className="h-5 w-5 text-accent-light" />
-                )}
-              </span>
-              <span className="whitespace-nowrap text-xs font-semibold text-foreground">{badge.label}</span>
-            </div>
-          ))}
+          <div className="mt-3.5 flex items-center gap-2.5 rounded-2xl border border-border-subtle bg-surface px-4 py-3">
+            <span className="h-1.5 w-1.5 shrink-0 animate-blink rounded-full bg-emerald-400" />
+            <p className="text-xs font-medium text-muted">
+              <span className="font-bold text-foreground">Hat şu an aktif</span> · Türkiye genelinde 81 ilde hizmet veriyoruz
+            </p>
+          </div>
         </Reveal>
       </Container>
     </section>

@@ -12,7 +12,7 @@ function LogoMark({ className }: { className?: string }) {
         className
       )}
     >
-      <svg viewBox="0 0 100 100" className="h-[62%] w-[62%]" aria-hidden="true">
+      <svg viewBox="0 0 100 100" className="h-[80%] w-[80%]" aria-hidden="true">
         <defs>
           <clipPath id="logo-m-left">
             <rect x="-30" y="-30" width="80" height="160" />
