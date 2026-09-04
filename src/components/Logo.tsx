@@ -28,7 +28,7 @@ export function Logo({ className, markClassName, textClassName }: { className?: 
     <Link href="/" className={cn("flex items-center gap-2", className)}>
       <LogoMark className={markClassName ?? "h-8 w-8"} />
       <span className={cn(jakarta.className, "text-lg font-extrabold tracking-tight text-white", textClassName)}>
-        MerkezServisim
+        Merkez<span className="text-primary-light">Servisim</span>
       </span>
     </Link>
   );
