@@ -213,6 +213,41 @@ export const hizmetler: Hizmet[] = [
     anahtarKelimeler: ["buzdolabı tamiri", "buzdolabı servisi", "buzdolabı soğutmuyor", "no-frost buzdolabı arıza", "buzdolabı kompresör arızası"],
   },
   {
+    slug: "derin-dondurucu-tamiri",
+    ad: "Derin Dondurucu Tamiri",
+    kisaAd: "Derin Dondurucu",
+    icon: "Snowflake",
+    kisaAciklama:
+      "Sandık veya dikey derin dondurucunuzda dondurmama, aşırı buzlanma ya da kompresör arızası mı var? Gıdalarınız bozulmadan aynı gün müdahale ediyoruz.",
+    girisParagraflari: [
+      "Derin dondurucular genellikle uzun süreli gıda saklamak için kullanıldığından, bu cihazlardaki bir arıza fark edilmeden günlerce sürebilir ve büyük miktarda gıdanın bozulmasına yol açabilir. Dondurmama, yetersiz soğutma veya kompresörden gelen anormal ses en sık karşılaşılan belirtilerdir.",
+      "Teknik ekibimiz hem sandık tipi hem de dikey (dolap tipi) derin dondurucularda gaz kaçağı, termostat ve kompresör arızalarını yerinde tespit eder. Net fiyat teklifi onayınızın ardından onarım aynı gün tamamlanır ve işçilik ile parça 1 yıl garanti kapsamına alınır.",
+    ],
+    bakimBasligi: "Derin Dondurucu Bakımı",
+    bakimGirisi:
+      "Buzlanmanın kalınlaşması ve kapı contasındaki aşınma, derin dondurucularda enerji tüketimini ciddi şekilde artırır. Düzenli defrost ve conta kontrolü, hem verimi korur hem de kompresörün ömrünü uzatır.",
+    arizaBelirtileri: [
+      { baslik: "Dondurmuyor veya Yetersiz Soğutuyor", aciklama: "Gaz kaçağı, kompresör arızası veya termostat sorunu dondurma performansını düşürür." },
+      { baslik: "Aşırı Buzlanma", aciklama: "Kapı contasındaki boşluk veya sık kapı açılışı buzlanmayı hızlandırır ve iç hacmi daraltır." },
+      { baslik: "Kompresör Sürekli Çalışıyor", aciklama: "Gaz eksikliği veya termostat arızası kompresörün durmadan çalışmasına neden olur." },
+      { baslik: "Anormal Ses ve Titreşim", aciklama: "Aşınmış kompresör veya gevşek montaj çalışma sırasında belirgin ses üretir." },
+      { baslik: "Kapı Sızdırıyor / Tam Kapanmıyor", aciklama: "Deforme olmuş kapak veya aşınmış conta soğuk hava kaçağına yol açar." },
+      { baslik: "Elektronik Gösterge Arızası", aciklama: "Kart veya sensör arızaları sıcaklık göstergesinin hatalı çalışmasına neden olabilir." },
+    ],
+    bakimMaddeleri: [
+      { baslik: "Defrost ve Buz Çözme Kontrolü", aciklama: "Kalın buz tabakası enerji tüketimini artırır ve iç hacmi daraltır." },
+      { baslik: "Kapak Contası Kontrolü", aciklama: "Sızdıran conta hem soğuk kaçağına hem de aşırı buzlanmaya yol açar." },
+      { baslik: "Yoğuşturucu Temizliği", aciklama: "Tozlu yoğuşturucu kompresörün daha fazla enerji harcamasına neden olur." },
+      { baslik: "Termostat Kalibrasyonu", aciklama: "Doğru kalibrasyon, gıda güvenliği için gereken sabit dondurma sıcaklığını garanti eder." },
+    ],
+    sss: [
+      { soru: "Sandık tipi ve dikey derin donduruculara da bakıyor musunuz?", cevap: "Evet, her iki tipte de yerinde arıza tespiti ve garantili onarım hizmeti sunuyoruz." },
+      { soru: "Derin dondurucum dondurmuyor, gıdalarım bozulmadan gelir misiniz?", cevap: "Bu tür acil çağrılarda bölgenize en yakın ekibi önceliklendirerek genellikle aynı gün içinde yönlendiriyoruz." },
+      { soru: "Aşırı buzlanma normal mi?", cevap: "Belirli bir kalınlığın üzerindeki buzlanma genellikle kapı contası veya defrost sistemi arızasına işaret eder; yerinde kontrolle nedeni belirlenir." },
+    ],
+    anahtarKelimeler: ["derin dondurucu tamiri", "derin dondurucu servisi", "sandık tipi dondurucu arıza", "derin dondurucu dondurmuyor"],
+  },
+  {
     slug: "firin-ocak-tamiri",
     ad: "Fırın ve Ocak Tamiri",
     kisaAd: "Fırın & Ocak",

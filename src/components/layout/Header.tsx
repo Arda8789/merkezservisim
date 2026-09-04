@@ -8,6 +8,7 @@ import { hizmetler } from "@/lib/data/hizmetler";
 import { Icon } from "@/components/ui/Icon";
 import { CallButton } from "@/components/PhoneCTA";
 import { Container } from "@/components/ui/Container";
+import { Logo } from "@/components/Logo";
 import { cn } from "@/lib/utils";
 
 export function Header() {
@@ -34,14 +35,7 @@ export function Header() {
       </div>
 
       <Container className="flex h-16 items-center justify-between gap-4 sm:h-[4.5rem]">
-        <Link href="/" className="flex items-center gap-2.5">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-dark shadow-[0_6px_20px_-6px_rgba(59,130,246,0.7)]">
-            <Icon name="Wrench" className="h-[18px] w-[18px] text-white" />
-          </span>
-          <span className="text-lg font-bold tracking-tight text-foreground">
-            Merkez<span className="text-gradient">Servisim</span>
-          </span>
-        </Link>
+        <Logo />
 
         <nav className="hidden items-center gap-1 lg:flex">
           <div className="group relative">
@@ -52,8 +46,8 @@ export function Header() {
               Hizmetler
               <Icon name="ChevronDown" className="h-3.5 w-3.5 transition-transform group-hover:rotate-180" />
             </Link>
-            <div className="invisible absolute left-1/2 top-full z-20 w-80 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
-              <div className="glass-card grid grid-cols-1 gap-1 rounded-2xl p-2 shadow-2xl shadow-black/40">
+            <div className="invisible absolute left-1/2 top-full z-50 w-80 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
+              <div className="grid grid-cols-1 gap-1 rounded-2xl border border-border-subtle bg-[#0c0d11] p-2 shadow-2xl shadow-black/60">
                 {hizmetler.map((h) => (
                   <Link
                     key={h.slug}

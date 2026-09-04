@@ -42,8 +42,8 @@ export function WhyUs() {
       <Container>
         <SectionHeading
           eyebrow="Neden Merkez Servisim"
-          title="Şablon Değil, Standart Onarım Süreci"
-          subtitle="Her çağrıda aynı disiplinli süreç, aynı şeffaf iletişim ve aynı garanti güvencesiyle yanınızdayız."
+          title="Her Çağrıda Aynı Titizlik, Aynı Güven"
+          subtitle="Şeffaf iletişim, disiplinli bir süreç ve garanti güvencesiyle her seferinde yanınızdayız."
         />
 
         <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">

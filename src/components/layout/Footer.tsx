@@ -4,6 +4,7 @@ import { hizmetler } from "@/lib/data/hizmetler";
 import { iller, buyukSehirSlugs } from "@/lib/data/iller";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
+import { Logo } from "@/components/Logo";
 
 const popularIller = buyukSehirSlugs
   .map((slug) => iller.find((i) => i.slug === slug))
@@ -16,14 +17,7 @@ export function Footer() {
     <footer className="border-t border-border-subtle bg-background-alt">
       <Container className="grid grid-cols-2 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-5">
         <div className="col-span-2 lg:col-span-2">
-          <Link href="/" className="flex items-center gap-2.5">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-accent to-accent-dark">
-              <Icon name="Wrench" className="h-[18px] w-[18px] text-white" />
-            </span>
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              Merkez<span className="text-gradient">Servisim</span>
-            </span>
-          </Link>
+          <Logo />
           <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted">{SITE_CONFIG.description}</p>
           <a
             href={SITE_CONFIG.phoneHref}

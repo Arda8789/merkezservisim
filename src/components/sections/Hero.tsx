@@ -52,19 +52,22 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-4 sm:flex sm:flex-wrap sm:gap-x-8">
+          <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
             {TRUST_ITEMS.map((item) => (
-              <div key={item.label} className="flex items-center gap-2 text-sm text-muted-2">
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/5 text-accent-light">
+              <div
+                key={item.label}
+                className="flex flex-col gap-2.5 rounded-2xl border border-border-subtle bg-surface p-4 transition-colors hover:border-primary/30 hover:bg-white/[0.06]"
+              >
+                <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary/15 text-primary-light">
                   <Icon name={item.icon} className="h-4 w-4" />
                 </span>
-                {item.label}
+                <span className="text-xs font-semibold leading-snug text-foreground/90 sm:text-[13px]">{item.label}</span>
               </div>
             ))}
           </div>
         </Reveal>
 
-        <Reveal delay={150} className="relative mx-auto h-[320px] w-[320px] sm:h-[400px] sm:w-[400px] lg:h-[440px] lg:w-[440px]">
+        <Reveal delay={150} className="relative mx-auto hidden lg:block lg:h-[440px] lg:w-[440px]">
           <div className="absolute inset-12 rounded-full bg-gradient-to-br from-accent/25 to-primary/25 blur-3xl" />
           <div className="absolute inset-14 rounded-full border border-border-subtle bg-surface backdrop-blur-sm sm:inset-16" />
           <div className="absolute inset-0 animate-spin-slow rounded-full border border-dashed border-accent/25" />

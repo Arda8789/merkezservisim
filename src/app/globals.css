@@ -73,6 +73,13 @@ body {
   color: transparent;
 }
 
+.text-gradient-orange {
+  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
 .bg-grid {
   background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),

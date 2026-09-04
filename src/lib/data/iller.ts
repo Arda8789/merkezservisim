@@ -12,7 +12,17 @@ export interface Il {
 
 export const iller: Il[] = illerData as Il[];
 
-export const bolgeler: string[] = Array.from(new Set(iller.map((i) => i.bolge)));
+const BOLGE_SIRASI = [
+  "Marmara",
+  "Ege",
+  "Akdeniz",
+  "İç Anadolu",
+  "Karadeniz",
+  "Doğu Anadolu",
+  "Güneydoğu Anadolu",
+];
+
+export const bolgeler: string[] = BOLGE_SIRASI.filter((b) => iller.some((i) => i.bolge === b));
 
 export function getIlBySlug(slug: string): Il | undefined {
   return iller.find((i) => i.slug === slug);

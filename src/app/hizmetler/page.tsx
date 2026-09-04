@@ -33,7 +33,7 @@ export default function HizmetlerPage() {
             subtitle="Aşağıdaki kategorilerin tamamında yerinde arıza tespiti, şeffaf fiyat teklifi ve 1 yıl garantili onarım hizmeti sunuyoruz. Detayları görmek istediğiniz hizmete tıklayın."
           />
 
-          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {hizmetler.map((hizmet, index) => (
               <Reveal key={hizmet.slug} delay={index * 60}>
                 <Link
@@ -43,7 +43,7 @@ export default function HizmetlerPage() {
                   <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-accent/20 to-primary/20 text-accent-light transition-colors group-hover:text-primary-light">
                     <Icon name={hizmet.icon} className="h-6 w-6" />
                   </span>
-                  <h2 className="mt-5 text-lg font-semibold text-foreground">{hizmet.ad}</h2>
+                  <h2 className="mt-5 text-base font-semibold text-foreground">{hizmet.ad}</h2>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{hizmet.kisaAciklama}</p>
                   <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent-light">
                     Detayları İncele
